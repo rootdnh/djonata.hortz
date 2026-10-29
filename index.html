@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Djonata Nossol Hortz · Desenvolvedor Full Stack</title>
+<meta name="description" content="Portfólio de Djonata Nossol Hortz, desenvolvedor Full Stack com ObjectScript e Node.js, certificado InterSystems ObjectScript Specialist.">
+<meta property="og:title" content="Djonata Nossol Hortz · Desenvolvedor Full Stack">
+<meta property="og:description" content="ObjectScript, Node.js e um gosto por eletrônica e automação.">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/50891573?v=4&s=400">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#14171a">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/50891573?v=4&s=64">
+<style>
+  :root {
+    --bg: #14171a;
+    --surface: #1c2125;
+    --border: #2b3238;
+    --text: #e6e9eb;
+    --muted: #9aa5ad;
+    --accent: #f2b233;
+    --accent-ink: #1a1300;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --border: #e3e3de;
+      --text: #1d2125;
+      --muted: #5f6b73;
+      --accent: #b97a00;
+      --accent-ink: #ffffff;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.65;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  .brand { font-weight: 700; text-decoration: none; letter-spacing: .2px; }
+  .brand span { color: var(--accent); }
+  .nav nav { display: flex; gap: 20px; font-size: .92rem; }
+  .nav nav a { text-decoration: none; color: var(--muted); }
+  .nav nav a:hover { color: var(--text); }
+  @media (max-width: 560px) { .nav nav a:nth-child(n+4) { display: none; } }
+
+  .hero { padding: 72px 0 56px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+  .hero img {
+    width: 140px; height: 140px; border-radius: 50%;
+    border: 3px solid var(--accent); object-fit: cover;
+  }
+  .hero .eyebrow { color: var(--accent); font-weight: 600; font-size: .9rem; margin: 0 0 6px; }
+  .hero h1 { margin: 0 0 10px; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; }
+  .hero p.lead { margin: 0 0 22px; color: var(--muted); max-width: 540px; font-size: 1.08rem; }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: .95rem;
+    border: 1px solid var(--border);
+  }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .btn:hover { transform: translateY(-1px); }
+
+  section { padding: 44px 0; border-top: 1px solid var(--border); }
+  h2 { margin: 0 0 20px; font-size: 1.35rem; }
+  h2::before { content: "// "; color: var(--accent); font-family: ui-monospace, Consolas, monospace; }
+  p { margin: 0 0 14px; }
+
+  .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 18px; }
+  .cert {
+    display: flex; gap: 16px; align-items: center;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 18px;
+  }
+  .cert img { width: 120px; height: 120px; flex: none; object-fit: contain; }
+  .cert h3 { margin: 0 0 2px; font-size: 1.1rem; }
+  .cert p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .skills div {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 18px;
+  }
+  .skills h3 { margin: 0 0 10px; font-size: .95rem; color: var(--muted); font-weight: 600; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags span {
+    font-size: .85rem; padding: 3px 10px; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--bg);
+  }
+
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 18px; }
+  @media (max-width: 480px) { .projects { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px; display: flex; flex-direction: column;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+  .card p { color: var(--muted); font-size: .95rem; flex: 1; }
+  .card .tags { margin-bottom: 14px; }
+  .card .links { display: flex; gap: 16px; font-size: .92rem; font-weight: 600; }
+  .card .links a { color: var(--accent); }
+  .badge {
+    font-size: .72rem; font-weight: 600; margin-left: 8px; padding: 2px 8px;
+    border-radius: 999px; border: 1px solid var(--accent); color: var(--accent);
+    vertical-align: middle;
+  }
+
+  .contact ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  footer { padding: 28px 0 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">djonata<span>.</span>dev</a>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#skills">Skills</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <img src="https://avatars.githubusercontent.com/u/50891573?v=4&s=280" alt="Foto de Djonata Nossol Hortz" width="140" height="140">
+      <div>
+        <p class="eyebrow">Olá, eu sou o</p>
+        <h1>Djonata Nossol Hortz</h1>
+        <p class="lead">Desenvolvedor Full Stack. Trabalho com ObjectScript e Node.js, e tenho um fraco por eletrônica e automação.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projetos">Ver projetos</a>
+          <a class="btn" href="https://www.linkedin.com/in/djonata-nossol-hortz-1b7168151/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/rootdnh" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="sobre">
+      <h2>Sobre</h2>
+      <p>Sou formado em Sistemas de Informação pela UDESC. No dia a dia mantenho sistemas em <strong>ObjectScript</strong> (InterSystems) e ajudo com código legado.</p>
+      <p>Fora do trabalho, gosto de eletrônica e automação e de criar soluções novas, seja só em software ou misturando com hardware. Também escrevo APIs e interfaces com Node.js e React. Estou sempre estudando e, no momento, voltando o foco para IA.</p>
+
+      <div class="certs">
+        <div class="cert">
+          <img src="https://images.credly.com/images/0cd7477c-61cd-4370-ad80-6de1f508599d/linkedin_thumb_blob" alt="Selo InterSystems ObjectScript Specialist" onerror="this.style.display='none'">
+          <div>
+            <h3>InterSystems ObjectScript Specialist</h3>
+            <p>InterSystems</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div>
+          <h3>Linguagens e plataformas</h3>
+          <div class="tags"><span>ObjectScript</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span><span>Node.js</span><span>React</span></div>
+        </div>
+        <div>
+          <h3>Back-end e APIs</h3>
+          <div class="tags"><span>APIs REST</span><span>Autenticação e autorização</span><span>Validação de dados</span><span>Cache</span><span>Rate limiting</span><span>Documentação de APIs</span></div>
+        </div>
+        <div>
+          <h3>Qualidade</h3>
+          <div class="tags"><span>Testes unitários</span><span>Testes de integração</span><span>Clean Code</span><span>SOLID</span><span>Git</span></div>
+        </div>
+        <div>
+          <h3>Dados e infraestrutura</h3>
+          <div class="tags"><span>InterSystems Caché / IRIS</span><span>PostgreSQL</span><span>Redis</span><span>Modelagem e migrations</span><span>Docker</span></div>
+        </div>
+        <div>
+          <h3>Inteligência artificial</h3>
+          <div class="tags"><span>RAG</span><span>Busca vetorial</span><span>IRIS Vector Search</span><span>Agentes de voz em tempo real (RTVA)</span><span>Spec-driven development</span></div>
+        </div>
+        <div>
+          <h3>Tempo real e IoT</h3>
+          <div class="tags"><span>WebSockets</span><span>Microcontroladores</span><span>Sensores</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <div class="projects">
+
+        <article class="card">
+          <h3>bee-tcc <span class="badge">TCC · UDESC</span></h3>
+          <p>Sistema IoT em tempo real para monitorar caixas de abelhas com sensores. Um ESP8266 envia as leituras para um servidor Node, que atualiza os gráficos no navegador. Ainda em desenvolvimento.</p>
+          <div class="tags"><span>Node.js</span><span>Express</span><span>Socket.io</span><span>Chart.js</span><span>ESP8266</span></div>
+          <div class="links"><a href="https://github.com/rootdnh/bee-tcc" target="_blank" rel="noopener">Código →</a></div>
+        </article>
+
+        <article class="card">
+          <h3>cache-schema-validator</h3>
+          <p>Biblioteca de validação de dados para Caché ObjectScript, inspirada em validadores de schema do mundo JS. Permite encadear regras como Required e String e devolve os erros em JSON.</p>
+          <div class="tags"><span>ObjectScript</span><span>Caché</span></div>
+          <div class="links"><a href="https://github.com/rootdnh/cache-schema-validator" target="_blank" rel="noopener">Código →</a></div>
+        </article>
+
+        <article class="card">
+          <h3>blog-api-node</h3>
+          <p>API completa de blog, feita para mostrar como montar algo inteiro de ponta a ponta: autenticação com JWT, migrations, cache, rate limit, logs, documentação com Swagger e testes.</p>
+          <div class="tags"><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Redis</span><span>Docker</span><span>Jest</span></div>
+          <div class="links"><a href="https://github.com/rootdnh/blog-api-node" target="_blank" rel="noopener">Código →</a></div>
+        </article>
+
+        <article class="card">
+          <h3>blog-frontend-react</h3>
+          <p>Front-end do blog em React com TypeScript. Tem autenticação, área de gerenciamento e CRUD de posts, consumindo a API acima.</p>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Bootstrap</span></div>
+          <div class="links">
+            <a href="https://blog-frontend-react-delta.vercel.app" target="_blank" rel="noopener">Demo →</a>
+            <a href="https://github.com/rootdnh/blog-frontend-react" target="_blank" rel="noopener">Código →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contato" class="contact">
+      <h2>Contato</h2>
+      <p>Quer conversar sobre um projeto ou só trocar uma ideia? É só chamar.</p>
+      <ul>
+        <li><a class="btn primary" href="mailto:djonata.hortz@gmail.com">djonata.hortz@gmail.com</a></li>
+        <li><a class="btn" href="https://www.linkedin.com/in/djonata-nossol-hortz-1b7168151/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a class="btn" href="https://github.com/rootdnh" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year">2026</span> Djonata Nossol Hortz</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
